@@ -15,27 +15,73 @@
     <div id="app">
         <header>
             <h1 v-text='sitename'></h1>
+            <button v-on:click="showCheckout"> {{this.cart.length}} <span class="fas fa-shopping-cart"></span> Check
+                out</button>
         </header>
+        <div v-if='showLesson'>
+            <div v-for='lesson in lessons'>
+                <img v-bind:src="lesson.image" alt="">
+                <h2 v-text="lesson.subject"></h2>
+                <p v-html="lesson.location"></p>
+                <p>Price:£{{lesson.price}}</p>
+                <p>Spaces: {{lesson.spaces}}</p>
+                <button v-on:click="addToCart(lesson)" v-if="canAddToCart(lesson)">Add to cart</button>
+                <button disabled='disabled' v-else>Add to cart</button>
+                
+                <span v-if='lesson.spaces === cartCount(lesson.id)'>All out!</span>
+                <span v-else-if="lesson.spaces - cartCount(lesson.id) < 5"> Only
+                    {{lesson.spaces - cartCount(lesson.id)}} left! </span>
+                <span v-else>Add now!</span>
+            </div>
+        </div>
+        <div v-else>
+    
+        </div>
     </div>
-    <div v-for='lesson in lessons'>
-        <img v-bind:src="lesson.image" alt="">
-        <h2 v-text="lesson.subject"></h2>
-        <p v-html="lesson.location"></p>
-        <p>Price:£{{lesson.price}}</p>
-        <p>Spaces: {{lesson.spaces}}</p>
-        <button>Add to cart</button>
-    </div>
+
+
     <script>
         let website = new Vue({
             el: '#app',
             data: {
                 sitename: 'After-school lessons',
                 lessons: lessons,
+                cart: [],
+                showLesson: true,
+            
+
             },
             methods: {
+                addToCart(lesson) {
+                    this.cart.push(lesson.id);
+                },
+                showCheckout() {
+                    this.showLesson = this.showLesson ? false : true;
+                },
+                submitForm() {
+                    alert('Order submitted!')
+                },
+                canAddToCart(lesson) {
+                    return lesson.spaces > this.cartCount(lesson.id)
+                },
+                cartCount(id) {
+                    let count = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i] === id) {
+                            count++;
+                        }
+                    }
+                    return count;
+                }
+
+            },
+            computed: {
+
 
             }
-        }
+        })
+
+
     </script>
 </body>
 
