@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="lessons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
 </head>
 
 <body>
@@ -21,7 +20,21 @@
                     class="fas fa-shopping-cart"></span> Check out</button>
             <button disabled='disabled' v-else> {{this.cart.length}} <span class="fas fa-shopping-cart"></span> Check
                 out</button>
-            <div v-for='lesson in lessons'>
+
+            <p><input type="radio" id="subject" value="Subject" v-model="sort.first">
+                <label for="subject">Subject</label>
+                <input type="radio" id="location" value="Location" v-model="sort.first">
+                <label for="location">Location</label>
+                <input type="radio" id="price" value="Price" v-model="sort.first">
+                <label for="price">Price</label>
+                <input type="radio" id="availability" value="Availability" v-model="sort.first">
+                <label for="availability">Availability</label></p>
+            <p><input type="radio" id="ascending" value="Ascending" v-model="sort.second">
+                <label for="ascending">Ascending</label>
+                <input type="radio" id="descending" value="Descending" v-model="sort.second">
+                <label for="descending">Descending</label></p>
+
+            <div v-for='lesson in sortedLessons'>
                 <p></p>
                 <img v-bind:src="lesson.image" alt="" width="100" height="100">
                 <h2 v-text="lesson.subject"></h2>
@@ -50,7 +63,7 @@
                         <p>Location: {{lesson.location}} </p>
                         <p>Price:£{{lesson.price}}</p>
                         <p>Spaces: {{lesson.spaces}}</p>
-                        <button v-on:click="" >Remove</button>
+                        <button v-on:click="">Remove</button>
                         <hr noshade>
                     </div>
                 </div>
@@ -83,7 +96,11 @@
                     lastName: '',
                     phone: '',
                     email: '',
-                }
+                },
+                sort: {
+                    first: 'Subject',
+                    second: 'Ascending',
+                },
 
             },
             methods: {
@@ -114,12 +131,75 @@
 
             },
             computed: {
+                sortedLessons() {
 
-
+                    if (this.sort.first == "Subject" && this.sort.second == "Ascending") {
+                        function compare(a, b) {
+                            if (a.subject > b.subject) return 1;
+                            if (a.subject < b.subject) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Subject" && this.sort.second == "Descending") {
+                        function compare(a, b) {
+                            if (a.subject < b.subject) return 1;
+                            if (a.subject > b.subject) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Location" && this.sort.second == "Ascending") {
+                        function compare(a, b) {
+                            if (a.location > b.location) return 1;
+                            if (a.location < b.location) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Location" && this.sort.second == "Descending") {
+                        function compare(a, b) {
+                            if (a.location < b.location) return 1;
+                            if (a.location > b.location) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Price" && this.sort.second == "Ascending") {
+                        function compare(a, b) {
+                            if (a.price > b.price) return 1;
+                            if (a.price < b.price) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Price" && this.sort.second == "Descending") {
+                        function compare(a, b) {
+                            if (a.price < b.price) return 1;
+                            if (a.price > b.price) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Availability" && this.sort.second == "Ascending") {
+                        function compare(a, b) {
+                            if (a.availability > b.availability) return 1;
+                            if (a.availability < b.availability) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                    if (this.sort.first == "Availability" && this.sort.second == "Descending") {
+                        function compare(a, b) {
+                            if (a.availability < b.availability) return 1;
+                            if (a.availability > b.availability) return -1;
+                            return 0;
+                        }
+                        return this.lessons.sort(compare);
+                    }
+                }
             }
         })
-
-
     </script>
 </body>
 
