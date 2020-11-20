@@ -35,7 +35,17 @@
             </div>
         </div>
         <div v-else>
-    
+            <h2>Checkout</h2>
+            <p><strong>First Name:</strong><input v-model="order.firstName" /></p>
+            <p><strong>Last Name:</strong><input v-model="order.lastName" /></p>
+            <p><strong>Phone number:</strong> <input v-model="order.phone" /></p>
+            <p><strong>Email:</strong> <input v-model="order.email" /></p>
+            <h2>Your details:</h2>
+            <p>First Name: {{order.firstName}}</p>
+            <p>Last Name: {{order.lastName}}</p>
+            <p>Phone number: {{order.phone}}</p>
+            <p>Email: {{order.email}}</p>
+            <button v-on:click='submitForm'>Submit order</button>
         </div>
     </div>
 
@@ -48,7 +58,12 @@
                 lessons: lessons,
                 cart: [],
                 showLesson: true,
-            
+                order: {
+                    firstName: '',
+                    lastName: '',
+                    phone: '',
+                    email: '',
+                }
 
             },
             methods: {
