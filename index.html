@@ -20,7 +20,8 @@
         </header>
         <div v-if='showLesson'>
             <div v-for='lesson in lessons'>
-                <img v-bind:src="lesson.image" alt="">
+                <p></p>
+                <img v-bind:src="lesson.image" alt="" width="100" height="100">
                 <h2 v-text="lesson.subject"></h2>
                 <p v-html="lesson.location"></p>
                 <p>Price:£{{lesson.price}}</p>
@@ -32,6 +33,7 @@
                 <span v-else-if="lesson.spaces - cartCount(lesson.id) < 5"> Only
                     {{lesson.spaces - cartCount(lesson.id)}} left! </span>
                 <span v-else>Add now!</span>
+                <hr noshade>
             </div>
         </div>
         <div v-else>

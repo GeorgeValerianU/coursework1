@@ -25,7 +25,7 @@ let lessons = [
     },
     {
         "id": 104,
-        "image": "math.png",
+        "image": "english.png",
         "subject": "English",
         "location": "London",
         "price": 120,
@@ -33,7 +33,7 @@ let lessons = [
     },
     {
         "id": 105,
-        "image": "math.png",
+        "image": "english.png",
         "subject": "English",
         "location": "Bristol",
         "price": 70,
@@ -41,7 +41,7 @@ let lessons = [
     },
     {
         "id": 106,
-        "image": "math.png",
+        "image": "music.png",
         "subject": "Music",
         "location": "London",
         "price": 115,
@@ -49,7 +49,7 @@ let lessons = [
     },
     {
         "id": 107,
-        "image": "math.png",
+        "image": "music.png",
         "subject": "Music",
         "location": "Cardiff",
         "price": 60,
@@ -57,7 +57,7 @@ let lessons = [
     },
     {
         "id": 108,
-        "image": "math.png",
+        "image": "science.png",
         "subject": "Science",
         "location": "London",
         "price": 95,
@@ -65,7 +65,7 @@ let lessons = [
     },
     {
         "id": 109,
-        "image": "math.png",
+        "image": "science.png",
         "subject": "Science",
         "location": "Birmingham",
         "price": 65,
@@ -73,7 +73,7 @@ let lessons = [
     },
     {
         "id": 110,
-        "image": "math.png",
+        "image": "science.png",
         "subject": "Science",
         "location": "Liverpool",
         "price": 50,
