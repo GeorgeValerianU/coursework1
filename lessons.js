@@ -1,6 +1,7 @@
 let products = [
     {
         "id": 101,
+        "image": "math.png",
         "subject": "Math",
         "location": "London",
         "price": 100,
@@ -8,6 +9,7 @@ let products = [
     },
     {
         "id": 102,
+        "image": "math.png",
         "subject": "Math",
         "location": "York",
         "price": 80,
@@ -15,6 +17,7 @@ let products = [
     },
     {
         "id": 103,
+        "image": "math.png",
         "subject": "Math",
         "location": "Oxford",
         "price": 85,
@@ -22,6 +25,7 @@ let products = [
     },
     {
         "id": 104,
+        "image": "math.png",
         "subject": "English",
         "location": "London",
         "price": 120,
@@ -29,6 +33,7 @@ let products = [
     },
     {
         "id": 105,
+        "image": "math.png",
         "subject": "English",
         "location": "Bristol",
         "price": 70,
@@ -36,6 +41,7 @@ let products = [
     },
     {
         "id": 106,
+        "image": "math.png",
         "subject": "Music",
         "location": "London",
         "price": 115,
@@ -43,6 +49,7 @@ let products = [
     },
     {
         "id": 107,
+        "image": "math.png",
         "subject": "Music",
         "location": "Cardiff",
         "price": 60,
@@ -50,6 +57,7 @@ let products = [
     },
     {
         "id": 108,
+        "image": "math.png",
         "subject": "Science",
         "location": "London",
         "price": 95,
@@ -57,6 +65,7 @@ let products = [
     },
     {
         "id": 109,
+        "image": "math.png",
         "subject": "Science",
         "location": "Birmingham",
         "price": 65,
@@ -64,6 +73,7 @@ let products = [
     },
     {
         "id": 110,
+        "image": "math.png",
         "subject": "Science",
         "location": "Liverpool",
         "price": 50,
