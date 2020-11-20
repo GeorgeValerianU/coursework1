@@ -15,12 +15,12 @@
     <div id="app">
         <header>
             <h1 v-text='sitename'></h1>
+        </header>
+        <div v-if='showLesson'>
             <button v-if="this.cart.length > 0" v-on:click="showCheckout"> {{this.cart.length}} <span
                     class="fas fa-shopping-cart"></span> Check out</button>
             <button disabled='disabled' v-else> {{this.cart.length}} <span class="fas fa-shopping-cart"></span> Check
                 out</button>
-        </header>
-        <div v-if='showLesson'>
             <div v-for='lesson in lessons'>
                 <p></p>
                 <img v-bind:src="lesson.image" alt="" width="100" height="100">
@@ -39,6 +39,8 @@
             </div>
         </div>
         <div v-else>
+            <button v-on:click="showLessons"> Lessons page</button>
+            <h2> <span class="fas fa-shopping-cart"></span> Your cart: {{this.cart.length}} </h2>
             <h2>Checkout</h2>
             <p><strong>First Name:</strong><input v-model="order.firstName" /></p>
             <p><strong>Last Name:</strong><input v-model="order.lastName" /></p>
@@ -75,7 +77,10 @@
                     this.cart.push(lesson.id);
                 },
                 showCheckout() {
-                    this.showLesson = this.showLesson ? false : true;
+                    this.showLesson = false;
+                },
+                showLessons() {
+                    this.showLesson = true;
                 },
                 submitForm() {
                     alert('Order submitted!')
