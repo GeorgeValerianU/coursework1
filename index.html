@@ -41,6 +41,20 @@
         <div v-else>
             <button v-on:click="showLessons"> Lessons page</button>
             <h2> <span class="fas fa-shopping-cart"></span> Your cart: {{this.cart.length}} </h2>
+            <div v-for='n in cart'>
+                <div v-for='lesson in lessons'>
+                    <div v-if='lesson.id === n'>
+                        <p></p>
+                        <img v-bind:src="lesson.image" alt="" width="100" height="100">
+                        <h2 v-text="lesson.subject"></h2>
+                        <p>Location: {{lesson.location}} </p>
+                        <p>Price:£{{lesson.price}}</p>
+                        <p>Spaces: {{lesson.spaces}}</p>
+                        <button v-on:click="" >Remove</button>
+                        <hr noshade>
+                    </div>
+                </div>
+            </div>
             <h2>Checkout</h2>
             <p><strong>First Name:</strong><input v-model="order.firstName" /></p>
             <p><strong>Last Name:</strong><input v-model="order.lastName" /></p>
