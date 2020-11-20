@@ -15,7 +15,9 @@
     <div id="app">
         <header>
             <h1 v-text='sitename'></h1>
-            <button v-on:click="showCheckout"> {{this.cart.length}} <span class="fas fa-shopping-cart"></span> Check
+            <button v-if="this.cart.length > 0" v-on:click="showCheckout"> {{this.cart.length}} <span
+                    class="fas fa-shopping-cart"></span> Check out</button>
+            <button disabled='disabled' v-else> {{this.cart.length}} <span class="fas fa-shopping-cart"></span> Check
                 out</button>
         </header>
         <div v-if='showLesson'>
@@ -23,12 +25,12 @@
                 <p></p>
                 <img v-bind:src="lesson.image" alt="" width="100" height="100">
                 <h2 v-text="lesson.subject"></h2>
-                <p v-html="lesson.location"></p>
+                <p>Location: {{lesson.location}} </p>
                 <p>Price:£{{lesson.price}}</p>
                 <p>Spaces: {{lesson.spaces}}</p>
                 <button v-on:click="addToCart(lesson)" v-if="canAddToCart(lesson)">Add to cart</button>
                 <button disabled='disabled' v-else>Add to cart</button>
-                
+
                 <span v-if='lesson.spaces === cartCount(lesson.id)'>All out!</span>
                 <span v-else-if="lesson.spaces - cartCount(lesson.id) < 5"> Only
                     {{lesson.spaces - cartCount(lesson.id)}} left! </span>
